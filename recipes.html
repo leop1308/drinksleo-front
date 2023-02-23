@@ -6,14 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <title>Sobre</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
+    <title>Cardápio</title>
+    <link rel="stylesheet" href="recipesStyle.css">
+    <link rel="script" href="main.js">
+
+</head>
 
 <body>
+    <script src="recipesScript.js"></script>
     <header>
-
-        <div class="nav_left" >
+        <div class="nav_left">
             <a href="index.html">
                 <img src="images/menu-images/Logo Drink Leo.png" />
             </a>
@@ -23,8 +25,8 @@
                 <ul>
                     <li><a href="index.html">Cardápio</a></li>
                     <li><a>Contato</a></li>
-                    <li class="active"><a href="sobre.html">Sobre</a></li>
-                    <li><a href="recipes.html">Receitas</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a class="active" href="recipes.html">Receitas</a></li>
                     <li><a>Estoque</a></li>
                 </ul>
             </nav>
@@ -41,14 +43,27 @@
                 </figure>
             </div>
         </div>
-
     </header>
 
-    <h1>Project: DrinkLeo</h1>
-    <h2>Version: 0.1</h2>
+
+    <table style="overflow: scroll;">
+        <thead>
+            <th>Imagem</th>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Preparo</th>
+            <th>ImagemUrl</th>
+            <th>backgroundColor</th>
+            <th>Ingredientes</th>
+        </thead>
+        <tbody id="receitasTableBody">
+            <!-- Populed from the JavaScript file -->
+        </tbody>
+    </table>
     <footer>
-        <p><strong></stro><a href="#top">---Voltar ao topo---</a></strong></p>
+        <p><strong><a href="#top">---Voltar ao topo---</a></strong></p>
     </footer>
+
 </body>
 
 </html>

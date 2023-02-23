@@ -39,7 +39,7 @@ window.onload = function () {
     var items;
     const getAllRecipes = fetch("http://localhost:8080/recipe/all");
     var a = window.document.getElementById("drinks_list");
-    var drinkContent;
+    var drinkContent ="";
     getAllRecipes.then(res => { return res.json() })
         .then(body => {
             /*items = JSON.stringify(body)*/
