@@ -1,0 +1,25 @@
+{
+    "name": "PinkLemonade",
+    "type": "gelada",
+    "recipeItems": [
+        {
+            "id": "63d9efd8e0c9b020afdc1123",
+            "ingredient": {
+                "id": "63d9ee755c0cdb5182e171a2",
+                "name": "Lemon"
+            },
+            "quant": "2",
+            "quantType": "unit"
+        },
+        {
+            "id": "63d9efd8e0c9b020afdc1124",
+            "ingredient": {
+                "id": "63d9ee755c0cdb5182e171a4",
+                "name": "Groselha"
+            },
+            "quant": "15",
+            "quantType": "ml"
+        }
+    ],
+    "prepare": null
+}
