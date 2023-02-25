@@ -45,7 +45,33 @@
         </div>
     </header>
 
+<div class="middle">
+    <h1>Receitas:</h1>\
+    <a onclick="addRecipe()">Nova Receita</a>
+    <form id="newRecipeForm" action="http://localhost:8080/recipe/new" method="post">
+        <h2>Crie uma nova Receita:</h2>
+        <button onclick="closeForm()">X</button>
+        <label>Nome:</label>
+        <input type="text" name="name" placeholder="Drink Name">
+        <label for="temperature">Temperatura:</label>
+        <select name="temperature" >
+            <option value="gelada" selected>Gelada</option>
+            <option value="quente">Quente</option>
+        </select>
+        <label>Cor de fundo:</label>
+        <input type="color" name="backgroundColor" placeholder="Escolha uma cor">
+        <label>Image:</label>
+        <input type="image" name="name" placeholder="Preparo">
+        <label>Preparo:</label>
+        <input type="text" name="prepare" placeholder="Preparo">
+        <button type="button" onclick="newIngredient()">Adicionar Ingrediente</button>
+        <div id="newIngredients"></div>
+        <button type="button" onclick="sendForm()">Registrar Receita</button>
+        <input type="submit" form="newRecipeForm" id="subButton" value="Registrar Receita" style="display: none;">
 
+
+    </form>
+    
     <table style="overflow: scroll;">
         <thead>
             <th>Imagem</th>
@@ -60,6 +86,7 @@
             <!-- Populed from the JavaScript file -->
         </tbody>
     </table>
+</div>
     <footer>
         <p><strong><a href="#top">---Voltar ao topo---</a></strong></p>
     </footer>
