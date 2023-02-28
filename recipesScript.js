@@ -76,67 +76,58 @@ function populateIngredientTypeOptions(body) {
     ingredientTypesForm();
 }
 function newIngredient() {
-    var ingredients = window.document.getElementById("newIngredients");
+    var ItemRecipeFields = window.document.getElementById("newIngredients");
+
+    let ingredientLabel = document.createElement("label");
+    ingredientLabel.textContent = `${itemsCount+1}° ingredient`;
+    ingredientLabel.setAttribute("for",`ingredient${itemsCount}`);
+    ItemRecipeFields.appendChild(ingredientLabel);
+
+    let quantInput = document.createElement("input");
+    quantInput.setAttribute("type","number");
+    quantInput.setAttribute("min","0");
+    quantInput.setAttribute("value","0");
+    ItemRecipeFields.appendChild(quantInput);
+
+    let quantTypeSelect = document.createElement("select");
+    appendMeasureTypeOptions(quantTypeSelect);
+    ItemRecipeFields.appendChild(quantTypeSelect);
+
+    let ingredientSelect = document.createElement("select");
+    quantInput.setAttribute("id",`ingredient${itemsCount}`);
+    appendIngredientOptions(ingredientSelect);
+    ItemRecipeFields.appendChild(ingredientSelect);
     
-    ingredients.innerHTML +=
-        `
-    <br>
-    <label for="ingredient${itemsCount}" >${itemsCount}° Ingrediente</lable>
-    <select name="ingredient${itemsCount}" id="ingredient${itemsCount}">${ingredientOptions}</select>
-    <label for="quant${itemsCount}" >
-    <input name="quant${itemsCount}" min="0" id="quant${itemsCount}" type="number" >
-    <select name="quantType${itemsCount}" id="quantType${itemsCount}" >
-    ${ingredientTypesOptions}
-    </select>
-    <br>
-    `;
-    itemsCount++
+    itemsCount++;
 }
-function ingredientForm() {
+
+function appendIngredientOptions(select) {
+    let option;
     for (let i = 0; i < allIngredientNames.length; i++) {
-        ingredientOptions += `<option value="${allIngredientNames[i]}">${allIngredientNames[i]}</option>`
+        option = document.createElement("option");
+        option.text = `${allIngredientNames[i]}`;
+        option.setAttribute("value", `${allIngredientNames[i]}`);
+        select.appendChild(option);
     }
-    /*
-    for (let ingredientItem of allIngredients) {
-        ingredientOptions += `<option value="quente">${allIngredients[i]}</option>`;
-    }*/
 }
-
-function ingredientTypesForm() {
+function appendMeasureTypeOptions(select) {
+    let option;
     for (let i = 0; i < ingredientTypesList.length; i++) {
-        ingredientTypesOptions += `<option value="${ingredientTypesList[i]}">${ingredientTypesList[i]}</option>`
+        option = document.createElement("option");
+        option.text = `${ingredientTypesList[i]}`;
+        option.setAttribute("value", `${ingredientTypesList[i]}`);
+        select.appendChild(option);
     }
-    /*
-    for (let ingredientItem of allIngredients) {
-        ingredientOptions += `<option value="quente">${allIngredients[i]}</option>`;
-    }*/
+    
 }
 
-/* Deprecated
-function sendForm() {
-    var ingredients = [];
-    var count = 0;
-    var checkbox = "";
-    var x = document.getElementById("newIngredients");
-    do {
-        let ingredient = window.document.getElementById("ingredient" + count);
-        
-        checkbox += `<input type="checkbox" form="newRecipeForm" name="recipeItems" value="${ingredient}" checked style="display: none;">`
-        
-        console.log("--Checkbox"+count+": "+`<input type="checkbox" form="newRecipeForm" name="recipeItems" value="${ingredient}" checked >`);
-        count++
-    } while (window.document.getElementById("ingredient" + count));
-    x.innerHTML = checkbox;
-    /*sendButton = window.document.getElementById("subButton");
-    sendButton.click();
-} */
+
+
 function openForm() {
     document.getElementById("formContainer").style.display = "block";
-    /*document.getElementById("recipeTable").style.display = "none";*/
 }
 function closeForm() {
     document.getElementById("formContainer").style.display = "none";
-    /*document.getElementById("recipeTable").style.display = "block";*/
 }
 
 function sendForm() {
@@ -169,25 +160,6 @@ function sendForm() {
         "recipeItems":itemsRecipe,
     }
 
-       /* ----Deprecated----
-
-       const newRecipeForm = document.querySelector('form');
-    var formData = new FormData(newRecipeForm);
-
-        formData.recipeItems = itemsRecipe;
-        
-        const res = Object.fromEntries(formData);
-        const payload = JSON.stringify(res);
-        console.log("FORMDATA: "+JSON.stringify(formData)) 
-        console.log("PAYLOAD: "+payload)
-        console.log("RECIPE: "+JSON.stringify(recipe))
-
-        const file = document.querySelector('#file');
-
-        for (item of formData) {
-            console.log(item[0], item[1]);
-        }
-*/
         fetch("http://127.0.0.1:8080/recipe/new", {
             method: "POST",
             body: JSON.stringify(recipe),

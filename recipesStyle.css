@@ -211,7 +211,10 @@ footer p a{
     background:  rgb(7, 27, 92);
     font-family: 'Inter', sans-serif;
     color: white;
-    
+}
+#formContainer textarea{
+    width: 200px;
+    height: 70px;
 }
 
 .middle #addRecipe{
