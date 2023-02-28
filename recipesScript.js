@@ -1,9 +1,8 @@
 var allIngredientNames = []
-var ingredientList = [];
 var ingredientTypesList = [];
 var ingredientOptions = "";
-var ingredientTypesOptions="";
-var count = 0;
+var ingredientTypesOptions = "";
+var itemsCount = 0;
 window.onload = function () {
     getAllRecipes();
     getAllIngredients();
@@ -11,7 +10,6 @@ window.onload = function () {
 }
 
 function getAllRecipes() {
-    var items;
     getRecipes = fetch("http://localhost:8080/recipe/all");
     var a = window.document.getElementById("receitasTableBody");
     var drinkContent = "";
@@ -33,9 +31,10 @@ function getAllRecipes() {
                 <td>`+
                     `<ul>`;
                 for (let ingredientItem of item["recipeItems"]) {
-                    drinkContent += `<li>${ingredientItem.quant + " " + ingredientItem.quantType + " de " + ingredientItem.ingredient.name}</li>`;
+                    if (ingredientItem.ingredient != null)
+                        drinkContent += `<li>${ingredientItem.quant + " " + ingredientItem.quantType + " de " + ingredientItem.ingredient.name}</li>`;
                 }
-                drinkContent += `</ul><td></tr>`;
+                drinkContent += `</ul></td></tr>`;
             }
             a.innerHTML = drinkContent;
             console.log("drinkContent: " + drinkContent + "lll");
@@ -49,49 +48,49 @@ function getAllIngredients() {
     getIngredients.then(res => res.json())
         .then(body => {
             populateIngredientOptions(body);
-
         })
         .catch(err => { console.log(err) });
 }
+
 function populateIngredientOptions(body) {
     for (let item of body) {
-        console.log("ingredient log: "+item.name);
+        console.log("ingredient log: " + item.name);
         allIngredientNames.push(item.name);
     }
     ingredientForm();
 }
 function getAllIngredientTypes() {
-fetch("http://localhost:8080/ingredient/allMeasureTypes").then(res => res.json())
-.then(body => {
-    populateIngredientTypeOptions(body);
-
-}).catch(err => { console.log(err) })
+    fetch("http://localhost:8080/ingredient/allMeasureTypes").then(res => res.json())
+        .then(body => {
+            populateIngredientTypeOptions(body);
+        }).catch(err => { console.log(err) })
 
 }
 
 
-function populateIngredientTypeOptions(body){
-    for(let item of body){
+function populateIngredientTypeOptions(body) {
+    for (let item of body) {
         ingredientTypesList.push(item);
-        console.log("IngredientTypes log: "+item);
+        console.log("IngredientTypes log: " + item);
     }
     ingredientTypesForm();
 }
 function newIngredient() {
     var ingredients = window.document.getElementById("newIngredients");
-    count++
+    
     ingredients.innerHTML +=
         `
     <br>
-    <label for="ingredient${count}" >${count}° Ingrediente</lable>
-    <select name="ingredient${count}" id="ingredient${count}">${ingredientOptions}</select>
-    <label for="quant${count}" >
-    <input name="quant" min="0" id="quant${count}" type="number" >
-    <select  >
+    <label for="ingredient${itemsCount}" >${itemsCount}° Ingrediente</lable>
+    <select name="ingredient${itemsCount}" id="ingredient${itemsCount}">${ingredientOptions}</select>
+    <label for="quant${itemsCount}" >
+    <input name="quant${itemsCount}" min="0" id="quant${itemsCount}" type="number" >
+    <select name="quantType${itemsCount}" id="quantType${itemsCount}" >
     ${ingredientTypesOptions}
     </select>
     <br>
     `;
+    itemsCount++
 }
 function ingredientForm() {
     for (let i = 0; i < allIngredientNames.length; i++) {
@@ -113,18 +112,90 @@ function ingredientTypesForm() {
     }*/
 }
 
+/* Deprecated
 function sendForm() {
-    const ingredients = [];
-    const count = 0;
+    var ingredients = [];
+    var count = 0;
+    var checkbox = "";
+    var x = document.getElementById("newIngredients");
     do {
-        let ingredient = ingredients.push(window.document.getElementById("ingredient" + count));
-        checkbox += `<input type="checkbox" form="newRecipeForm" name="ingredients" value="${ingredient}" checked style="display: none;">`
+        let ingredient = window.document.getElementById("ingredient" + count);
+        
+        checkbox += `<input type="checkbox" form="newRecipeForm" name="recipeItems" value="${ingredient}" checked style="display: none;">`
+        
+        console.log("--Checkbox"+count+": "+`<input type="checkbox" form="newRecipeForm" name="recipeItems" value="${ingredient}" checked >`);
         count++
     } while (window.document.getElementById("ingredient" + count));
-    subButton = window.document.getElementById("subButton");
+    x.innerHTML = checkbox;
+    /*sendButton = window.document.getElementById("subButton");
     sendButton.click();
+} */
+function openForm() {
+    document.getElementById("formContainer").style.display = "block";
+    /*document.getElementById("recipeTable").style.display = "none";*/
 }
-function closeForm(){
-    let form = window.document.getElementById("newIngredients");
-    form.setAttribute();
+function closeForm() {
+    document.getElementById("formContainer").style.display = "none";
+    /*document.getElementById("recipeTable").style.display = "block";*/
+}
+
+function sendForm() {
+    var itemsRecipe = [];
+    var itemAux = {};
+    
+    console.log("Adding "+itemsCount+" items");
+    for (let i = 0; i < itemsCount; i++){
+        console.log("Adding item n°"+i);
+        itemAux.quant  = document.getElementById("quant"+i).value;
+        
+
+        itemAux.quantType = document.getElementById("quantType"+i).value;
+        
+        
+        itemAux.ingredient = {
+                "name":document.getElementById("ingredient"+i).value
+        }
+
+        console.log("Adding item n°"+i+": Item:"+JSON.stringify(itemAux));
+        /*adding a copy of ItemAux, because the array store the object reference*/
+        itemsRecipe.push(JSON.parse(JSON.stringify(itemAux)));
+    }
+    console.log("itemsRecipe: "+JSON.stringify(itemsRecipe));
+    recipe = {
+        "name": document.getElementById("name").value,
+        "prepare": document.getElementById("prepare").value,
+        "temperature": document.getElementById("temperature").value,
+        "backgroundColor": document.getElementById("backgroundColor").value,
+        "recipeItems":itemsRecipe,
+    }
+
+       /* ----Deprecated----
+
+       const newRecipeForm = document.querySelector('form');
+    var formData = new FormData(newRecipeForm);
+
+        formData.recipeItems = itemsRecipe;
+        
+        const res = Object.fromEntries(formData);
+        const payload = JSON.stringify(res);
+        console.log("FORMDATA: "+JSON.stringify(formData)) 
+        console.log("PAYLOAD: "+payload)
+        console.log("RECIPE: "+JSON.stringify(recipe))
+
+        const file = document.querySelector('#file');
+
+        for (item of formData) {
+            console.log(item[0], item[1]);
+        }
+*/
+        fetch("http://127.0.0.1:8080/recipe/new", {
+            method: "POST",
+            body: JSON.stringify(recipe),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+            .then(res => console.log(res));
+
+  
 }
