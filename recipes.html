@@ -26,7 +26,7 @@
                     <li><a href="index.html">Cardápio</a></li>
                     <li><a>Contato</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
-                    <li class="active"><a  href="recipes.html">Receitas</a></li>
+                    <li class="active"><a href="recipes.html">Receitas</a></li>
                     <li><a>Estoque</a></li>
                 </ul>
             </nav>
@@ -49,13 +49,13 @@
         <h1>Receitas:</h1>
         <a onclick="openForm()" id="addRecipe">Nova Receita</a>
         <!--action="http://localhost:8080/recipe/new" method="post"-->
-        
+
         <div id="formContainer">
-            <form id="newRecipeForm" >
+            <form id="newRecipeForm">
                 <h2>Crie uma nova Receita:</h2>
-                <button class="closeButton" onclick="closeForm()">X</button>
-                
-                
+                <button class="closeButton" type="button" onclick="closeForm()">X</button>
+
+
                 <label>Nome:</label>
                 <input type="text" name="name" id="name" placeholder="Drink Name">
                 <label for="temperature">Temperatura:</label>
@@ -65,20 +65,19 @@
                 </select>
                 <label>Cor de fundo:</label>
                 <input type="color" name="backgroundColor" id="backgroundColor" placeholder="Escolha uma cor">
-                
-                
-                
-      
+
+
                 <label>Preparo:</label>
-                <!--<input type="text" name="prepare" placeholder="Preparo"> 
-                    <label>Image:</label>
-                    <input type="file" name="imagem" placeholder="Preparo"> 
-                <button type="button" onclick="sendForm()">Registrar Receita</button>-->
-                <textarea name="prepare" id="prepare" placeholder="Preparo"></textarea>
+                <textarea name="prepare" id="prepare"
+                    placeholder="Preparo (Use a quebra de linha/'Enter' para dividir o passo a passo)"></textarea>
+                <!-- <input type="text" name="prepare" placeholder="Preparo">  -->
+                <label>Image:</label>
+                <input type="file" name="imagem" id="imagem" accept="image/png, image/jpeg" placeholder="Preparo">
+
                 <button type="button" onclick="newIngredient()">Adicionar Ingrediente</button>
                 <div id="newIngredients"></div>
-                
-                <button type="button" onclick="sendForm()">Registrar Receita</button>
+
+                <button type="button" onclick="sendFormWithImage()">Registrar Receita</button>
 
 
             </form>
@@ -88,7 +87,7 @@
             <thead>
                 <th>Imagem</th>
                 <th>Nome</th>
-                <th>Tipo</th>
+                <th>Temperatura</th>
                 <th>Preparo</th>
                 <th>ImagemUrl</th>
                 <th>backgroundColor</th>

@@ -24,7 +24,7 @@ function getAllRecipes() {
                 <tr>
                 <td><img style="width:50px" src="images/drinks-images/${item.imageUrl}"></td>
                 <td>${item.name}</td>
-                <td>${item.type}</td>
+                <td>${item.temperature}</td>
                 <td>${item.prepare}</td>
                 <td>${item.imageUrl}</td>
                 <td>${item.backgroundColor}</td>
@@ -159,6 +159,7 @@ function sendForm() {
         "backgroundColor": document.getElementById("backgroundColor").value,
         "recipeItems":itemsRecipe,
     }
+    
 
         fetch("http://127.0.0.1:8080/recipe/new", {
             method: "POST",
@@ -168,6 +169,59 @@ function sendForm() {
             }
         }).then(res => res.json())
             .then(res => console.log(res));
+
+  
+}
+
+function sendFormWithImage() {
+    var itemsRecipe = [];
+    var itemAux = {};
+    
+    console.log("Adding "+itemsCount+" items");
+    for (let i = 0; i < itemsCount; i++){
+        console.log("Adding item n°"+i);
+        itemAux.quant  = document.getElementById("quant"+i).value;
+        
+
+        itemAux.quantType = document.getElementById("quantType"+i).value;
+        
+        
+        itemAux.ingredient = {
+                "name":document.getElementById("ingredient"+i).value
+        }
+
+        console.log("Adding item n°"+i+": Item:"+JSON.stringify(itemAux));
+        /*adding a copy of ItemAux, because the array store the object reference*/
+        itemsRecipe.push(JSON.parse(JSON.stringify(itemAux)));
+    }
+    const file = document.getElementById("imagem").files[0];
+    console.log("IMAGEMS LOG: "+ file);
+
+    console.log("itemsRecipe: "+JSON.stringify(itemsRecipe));
+    recipe = {
+        "name": document.getElementById("name").value,
+        "prepare": document.getElementById("prepare").value,
+        "temperature": document.getElementById("temperature").value,
+        "backgroundColor": document.getElementById("backgroundColor").value,
+        "recipeItems":itemsRecipe,
+        
+    }
+    
+    var dataForm = new FormData();
+    dataForm.append('recipe', JSON.stringify(recipe));
+    dataForm.append('file', file);
+    //const data = new URLSearchParams(dataForm);
+
+   
+
+        fetch("http://127.0.0.1:8080/recipe/new",  {
+            mode:"no-cors",
+            method: "POST",
+            body: dataForm,
+            
+        }).then(res => res.json())
+            .then(res => console.log(res))
+            .catch(err => console.log(err) );
 
   
 }
