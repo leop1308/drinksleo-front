@@ -1,0 +1,492 @@
+{
+	"info": {
+		"_postman_id": "718aeae6-d86b-4421-8abc-9394ee48788c",
+		"name": "DrinksLeo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17610975"
+	},
+	"item": [
+		{
+			"name": "GetAllRecipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/recipe/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"recipe",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateRecipe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Drink de Morango com Amora\",\r\n    \"type\": \"gelada\",\r\n    \"prepare\": \"Macere 2 morangos e 2 amoras na coqueteleira. Adicione a água, suco de limão, xarope de morango, algumas pedras de gelo (~4 pedras grandes) na coqueteleira e bata. Faça uma dupla coagem para o copo (com gelo). Complete com GingerAle (ou água com gás)\",\r\n    \"recipeItems\":[\r\n        {\"ingredient\":{\"name\":\"Amoras\"}, \"quant\":\"3\", \"quantType\":\"UNIT\"},\r\n        {\"ingredient\":{\"name\":\"Monrango\"}, \"quant\":\"3\", \"quantType\":\"UNIT\"},\r\n        {\"ingredient\":{\"name\":\"Limão Siciliano\"}, \"quant\":\"15\", \"quantType\":\"ML\"},\r\n        {\"ingredient\":{\"name\":\"Ginger Ale\"}, \"quant\":\"0\", \"quantType\":\"COMPLETAR\"},\r\n        {\"ingredient\":{\"name\":\"Xarope de Morango\"}, \"quant\":\"15\", \"quantType\":\"ML\"}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/recipe/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"recipe",
+						"new"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "abacaxi com hortela example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Drink de Abacaxi com  Hortelã\",\r\n    \"temperature\": \"gelada\",\r\n    \"prepare\": \"Macere 2 morangos e 2 amoras na coqueteleira. Adicione a água, suco de limão, xarope de morango, algumas pedras de gelo (~4 pedras grandes) na coqueteleira e bata. Faça uma dupla coagem para o copo (com gelo). Complete com GingerAle (ou água com gás)\",\r\n    \"backgroundColor\": \"green\",\r\n    \"imageUrl\": \"drink abacaxi com hortela.png\",\r\n    \"recipeItems\":[\r\n        {\"ingredient\":{\"name\":\"Limão Siciliano\"}, \"quant\":\"15\", \"quantType\":\"ML\"},\r\n        {\"ingredient\":{\"name\":\"Xarope de Morango\"}, \"quant\":\"15\", \"quantType\":\"ML\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/recipe/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"new"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Morango com Amora example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Drink de Morango com Amora\",\r\n    \"temperature\": \"gelada\",\r\n    \"prepare\": \"Macere 2 morangos e 2 amoras na coqueteleira. Adicione a água, suco de limão, xarope de morango, algumas pedras de gelo (~4 pedras grandes) na coqueteleira e bata. Faça uma dupla coagem para o copo (com gelo). Complete com GingerAle (ou água com gás)\",\r\n    \"backgroundColor\": \"red\",\r\n    \"imageUrl\": \"drink de morango com amora.jpg\",\r\n    \"recipeItems\":[\r\n        {\"ingredient\":{\"name\":\"Amoras\"}, \"quant\":\"3\", \"quantType\":\"UNIT\"},\r\n        {\"ingredient\":{\"name\":\"Monrango\"}, \"quant\":\"3\", \"quantType\":\"UNIT\"},\r\n        {\"ingredient\":{\"name\":\"Limão Siciliano\"}, \"quant\":\"15\", \"quantType\":\"ML\"},\r\n        {\"ingredient\":{\"name\":\"Ginger Ale\"}, \"quant\":\"0\", \"quantType\":\"COMPLETAR\"},\r\n        {\"ingredient\":{\"name\":\"Xarope de Morango\"}, \"quant\":\"15\", \"quantType\":\"ML\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/recipe/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"new"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Laranja example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Drink de laranja\",\r\n    \"temperature\": \"gelada\",\r\n    \"prepare\": \"Macere 2 morangos e 2 amoras na coqueteleira. Adicione a água, suco de limão, xarope de morango, algumas pedras de gelo (~4 pedras grandes) na coqueteleira e bata. Faça uma dupla coagem para o copo (com gelo). Complete com GingerAle (ou água com gás)\",\r\n    \"backgroundColor\": \"orange\",\r\n    \"imageUrl\": \"drink de laranja.png\",\r\n    \"recipeItems\":[\r\n        {\"ingredient\":{\"name\":\"Laranja\"}, \"quant\":\"3\", \"quantType\":\"UNIT\"}\r\n\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/recipe/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"new"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "valid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Piddd\",\r\n    \"temperature\":\"gelada\",\r\n    \"recipeItems\":[],\r\n    \"prepare\":\"sla\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/recipe/valid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"recipe",
+						"valid"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "abacaxi com hortela example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Drink de Abacaxi com  Hortelã\",\r\n    \"temperature\": \"gelada\",\r\n    \"prepare\": \"Macere 2 morangos e 2 amoras na coqueteleira. Adicione a água, suco de limão, xarope de morango, algumas pedras de gelo (~4 pedras grandes) na coqueteleira e bata. Faça uma dupla coagem para o copo (com gelo). Complete com GingerAle (ou água com gás)\",\r\n    \"backgroundColor\": \"green\",\r\n    \"imageUrl\": \"drink abacaxi com hortela.png\",\r\n    \"recipeItems\":[\r\n        {\"ingredient\":{\"name\":\"Limão Siciliano\"}, \"quant\":\"15\", \"quantType\":\"ML\"},\r\n        {\"ingredient\":{\"name\":\"Xarope de Morango\"}, \"quant\":\"15\", \"quantType\":\"ML\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/recipe/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"new"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Morango com Amora example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Drink de Morango com Amora\",\r\n    \"temperature\": \"gelada\",\r\n    \"prepare\": \"Macere 2 morangos e 2 amoras na coqueteleira. Adicione a água, suco de limão, xarope de morango, algumas pedras de gelo (~4 pedras grandes) na coqueteleira e bata. Faça uma dupla coagem para o copo (com gelo). Complete com GingerAle (ou água com gás)\",\r\n    \"backgroundColor\": \"red\",\r\n    \"imageUrl\": \"drink de morango com amora.jpg\",\r\n    \"recipeItems\":[\r\n        {\"ingredient\":{\"name\":\"Amoras\"}, \"quant\":\"3\", \"quantType\":\"UNIT\"},\r\n        {\"ingredient\":{\"name\":\"Monrango\"}, \"quant\":\"3\", \"quantType\":\"UNIT\"},\r\n        {\"ingredient\":{\"name\":\"Limão Siciliano\"}, \"quant\":\"15\", \"quantType\":\"ML\"},\r\n        {\"ingredient\":{\"name\":\"Ginger Ale\"}, \"quant\":\"0\", \"quantType\":\"COMPLETAR\"},\r\n        {\"ingredient\":{\"name\":\"Xarope de Morango\"}, \"quant\":\"15\", \"quantType\":\"ML\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/recipe/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"new"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Laranja example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Drink de laranja\",\r\n    \"temperature\": \"gelada\",\r\n    \"prepare\": \"Macere 2 morangos e 2 amoras na coqueteleira. Adicione a água, suco de limão, xarope de morango, algumas pedras de gelo (~4 pedras grandes) na coqueteleira e bata. Faça uma dupla coagem para o copo (com gelo). Complete com GingerAle (ou água com gás)\",\r\n    \"backgroundColor\": \"orange\",\r\n    \"imageUrl\": \"drink de laranja.png\",\r\n    \"recipeItems\":[\r\n        {\"ingredient\":{\"name\":\"Laranja\"}, \"quant\":\"3\", \"quantType\":\"UNIT\"}\r\n\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/recipe/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"new"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "GetRecipe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/recipe/PinkLemonade",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"recipe",
+						"PinkLemonade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllIngredients",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/ingredient/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ingredient",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllMeasureTypes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ingredient/allMeasureTypes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ingredient",
+						"allMeasureTypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create with image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/PC/OneDrive/Imagens/figurinhas/5eead24f09ee77eef5264e40276c760a.jpg"
+						},
+						{
+							"key": "recipe",
+							"value": "{\n    \"name\": \"Drinkamo\",\n    \"temperature\": \"gelada\",\n    \"prepare\": \"Macere 2 morangos e 2 amoras na coqueteleira. Adicione a água, suco de limão, xarope de morango, algumas pedras de gelo (~4 pedras grandes) na coqueteleira e bata. Faça uma dupla coagem para o copo (com gelo). Complete com GingerAle (ou água com gás)\",\n    \"backgroundColor\": \"red\",\n    \"imageUrl\": \"drink de morango com amora.jpg\",\n    \"recipeItems\":[\n        {\"ingredient\":{\"name\":\"Amoras\"}, \"quant\":\"3\", \"quantType\":\"UNIT\"},\n        {\"ingredient\":{\"name\":\"Monrango\"}, \"quant\":\"3\", \"quantType\":\"UNIT\"},\n        {\"ingredient\":{\"name\":\"Limão Siciliano\"}, \"quant\":\"15\", \"quantType\":\"ML\"},\n        {\"ingredient\":{\"name\":\"Ginger Ale\"}, \"quant\":\"0\", \"quantType\":\"COMPLETAR\"},\n        {\"ingredient\":{\"name\":\"Xarope de Morango\"}, \"quant\":\"15\", \"quantType\":\"ML\"}\n    ]\n}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/recipe/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"recipe",
+						"new"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create with image",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/PC/OneDrive/Imagens/figurinhas/43c8c3bc28f64fde05150bf1fed5a589.jpeg"
+								},
+								{
+									"key": "recipe",
+									"value": "{\n    \"name\": \"DrinkAmo\",\n    \"temperature\": \"gelada\",\n    \"prepare\": \"Macere 2 morangos e 2 amoras na coqueteleira. Adicione a água, suco de limão, xarope de morango, algumas pedras de gelo (~4 pedras grandes) na coqueteleira e bata. Faça uma dupla coagem para o copo (com gelo). Complete com GingerAle (ou água com gás)\",\n    \"backgroundColor\": \"red\",\n    \"imageUrl\": \"drink de morango com amora.jpg\",\n    \"recipeItems\":[\n        {\"ingredient\":{\"name\":\"Amoras\"}, \"quant\":\"3\", \"quantType\":\"UNIT\"},\n        {\"ingredient\":{\"name\":\"Monrango\"}, \"quant\":\"3\", \"quantType\":\"UNIT\"},\n        {\"ingredient\":{\"name\":\"Limão Siciliano\"}, \"quant\":\"15\", \"quantType\":\"ML\"},\n        {\"ingredient\":{\"name\":\"Ginger Ale\"}, \"quant\":\"0\", \"quantType\":\"COMPLETAR\"},\n        {\"ingredient\":{\"name\":\"Xarope de Morango\"}, \"quant\":\"15\", \"quantType\":\"ML\"}\n    ]\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/recipe/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"new"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Create with image error validation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/PC/OneDrive/Imagens/figurinhas/1f60765d-ec11-4b4a-9f3d-15372dde53d2.jpg"
+								},
+								{
+									"key": "recipe",
+									"value": "{\n    \"name\": \"Drink de uva6\",\n    \"prepare\": \"AFS\",\n    \"recipeItems\":[\n    \n    ]\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/recipe/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"new"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 09 Mar 2023 21:46:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2023-03-09T21:46:20.300+00:00\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"trace\": \"jakarta.validation.ConstraintViolationException: Error occurred: \\n Violation 1: não deve ser nulo\\n Violation 2: tamanho deve ser entre 5 e 10\\r\\n\\tat com.drinksleo.controller.RecipeDtoValidator.recipeValidate(RecipeDtoValidator.java:29)\\r\\n\\tat com.drinksleo.service.RecipeService.getJson(RecipeService.java:134)\\r\\n\\tat com.drinksleo.controller.RecipeController.uploadImage(RecipeController.java:51)\\r\\n\\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\\r\\n\\tat java.base/java.lang.reflect.Method.invoke(Method.java:578)\\r\\n\\tat org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)\\r\\n\\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)\\r\\n\\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)\\r\\n\\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)\\r\\n\\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)\\r\\n\\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)\\r\\n\\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1080)\\r\\n\\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:973)\\r\\n\\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)\\r\\n\\tat org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)\\r\\n\\tat jakarta.servlet.http.HttpServlet.service(HttpServlet.java:731)\\r\\n\\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)\\r\\n\\tat jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)\\r\\n\\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)\\r\\n\\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)\\r\\n\\tat org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)\\r\\n\\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)\\r\\n\\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)\\r\\n\\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\\r\\n\\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\\r\\n\\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)\\r\\n\\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)\\r\\n\\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\\r\\n\\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\\r\\n\\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)\\r\\n\\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)\\r\\n\\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\\r\\n\\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\\r\\n\\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)\\r\\n\\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)\\r\\n\\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)\\r\\n\\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)\\r\\n\\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)\\r\\n\\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)\\r\\n\\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)\\r\\n\\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)\\r\\n\\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)\\r\\n\\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)\\r\\n\\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)\\r\\n\\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)\\r\\n\\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)\\r\\n\\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)\\r\\n\\tat org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)\\r\\n\\tat org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)\\r\\n\\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)\\r\\n\\tat java.base/java.lang.Thread.run(Thread.java:1589)\\r\\n\",\n    \"message\": \"Error occurred: \\n Violation 1: não deve ser nulo\\n Violation 2: tamanho deve ser entre 5 e 10\",\n    \"path\": \"/recipe/new\"\n}"
+				}
+			]
+		}
+	]
+}
