@@ -19,10 +19,12 @@ function getAllRecipes() {
             console.log(body);
 
             for (let item of body) {
-
+                
+                var imageFullUrl = item.imageUrl; 
+                var imageInProject = imageFullUrl.split("drinksleo-front");    
                 drinkContent += `
                 <tr>
-                <td><img style="width:50px" src="images/drinks-images/${item.imageUrl}"></td>
+                <td><img style="width:50px" src="${imageInProject[1]}"></td>
                 <td>${item.name}</td>
                 <td>${item.temperature}</td>
                 <td>${item.prepare}</td>

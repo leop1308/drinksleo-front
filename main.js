@@ -46,10 +46,12 @@ window.onload = function () {
             console.log(body);
             
             for (let item of body) {
+                var imageFullUrl = item.imageUrl; 
+                var imageInProject = imageFullUrl.split("drinksleo-front");     
 
                 drinkContent += `<div class="drink" style=" background-image: linear-gradient(to bottom,  rgba(67, 67, 73, 0.562) , ${item.backgroundColor}" >
                 <div class="drink_img"  >
-                <img src="images/drinks-images/${item.imageUrl}">
+                <img src="images/drinks-images/${imageInProject[1]}">
                 </div>
                 <div class="drink_text" >
                 <h2>${item.name}</h2>
