@@ -22,12 +22,20 @@ function getAllRecipes() {
                 
                 var imageFullUrl = item.imageUrl; 
                 var imageInProject = imageFullUrl.split("drinksleo-front");    
+                console.log(imageInProject[0])
+                console.log(imageInProject[1])
                 drinkContent += `
                 <tr>
                 <td><img style="width:50px" src="${imageInProject[1]}"></td>
                 <td>${item.name}</td>
                 <td>${item.temperature}</td>
-                <td>${item.prepare}</td>
+                <td> <ol type="1">`
+                for (let prepareStep of item["prepare"]) {
+                    if (prepareStep != null)
+                    drinkContent += `<li>${prepareStep}</li>`;
+                
+                }
+                drinkContent +=`</ol></td>
                 <td>${item.imageUrl}</td>
                 <td>${item.backgroundColor}</td>
                 <td>`+
@@ -86,17 +94,21 @@ function newIngredient() {
     ItemRecipeFields.appendChild(ingredientLabel);
 
     let quantInput = document.createElement("input");
+    quantInput.setAttribute("id",`quant${itemsCount}`);
     quantInput.setAttribute("type","number");
     quantInput.setAttribute("min","0");
     quantInput.setAttribute("value","0");
     ItemRecipeFields.appendChild(quantInput);
 
     let quantTypeSelect = document.createElement("select");
+    quantTypeSelect.setAttribute("id",`quantType${itemsCount}`);
+    
     appendMeasureTypeOptions(quantTypeSelect);
     ItemRecipeFields.appendChild(quantTypeSelect);
-
+    
     let ingredientSelect = document.createElement("select");
-    quantInput.setAttribute("id",`ingredient${itemsCount}`);
+    ingredientSelect.setAttribute("id",`ingredient${itemsCount}`);
+    
     appendIngredientOptions(ingredientSelect);
     ItemRecipeFields.appendChild(ingredientSelect);
     

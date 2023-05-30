@@ -51,7 +51,7 @@ window.onload = function () {
 
                 drinkContent += `<div class="drink" style=" background-image: linear-gradient(to bottom,  rgba(67, 67, 73, 0.562) , ${item.backgroundColor}" >
                 <div class="drink_img"  >
-                <img src="images/drinks-images/${imageInProject[1]}">
+                <img src="${imageInProject[1]}">
                 </div>
                 <div class="drink_text" >
                 <h2>${item.name}</h2>
